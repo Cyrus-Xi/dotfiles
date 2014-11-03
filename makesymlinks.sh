@@ -10,7 +10,7 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="ackrc bash_profile bashrc gemrc gitconfig profile vimrc"    # list of files/folders to symlink in homedir
+files="ackrc bash_profile bashrc gemrc gitconfig profile vim vimrc"    # list of files/folders to symlink in homedir
 
 ##########
 
