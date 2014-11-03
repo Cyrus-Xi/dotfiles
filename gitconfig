@@ -1,0 +1,19 @@
+[user]
+	name = Cyrus Xi
+	email = xi.cyrus@gmail.com
+[alias]
+	st = status
+	unstage = reset HEAD --
+	com = commit
+	chout = checkout
+[core]
+	editor = subl -w
+	autocrlf = input
+[push]
+	default = simple
+[color]
+	ui = true
+[filter "media"]
+	clean = git media clean %f
+	smudge = git media smudge %f
+	required = true
