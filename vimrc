@@ -36,11 +36,23 @@ Plugin 'zenorocha/dracula-theme'
 " vim-airline
 Plugin 'bling/vim-airline'
 
+" the NERD tree
+Plugin 'scrooloose/nerdtree'
+
+" the NERD commenter
+Plugin 'scrooloose/nerdcommenter'
+
+" Syntastic
+Plugin 'scrooloose/syntastic'
+
 " ultisnips
-Plugin 'SirVer/ultisnips'
+"Plugin 'SirVer/ultisnips'
 
 " Snippets are separate
-Plugin 'honza/vim-snippets'
+"Plugin 'honza/vim-snippets'
+
+" minibufexpl
+Plugin 'fholgado/minibufexpl.vim'
 
 " All plugins must be added before the following line
 call vundle#end()
@@ -206,6 +218,9 @@ nmap <C-h> gT
 nnoremap ; :
 nnoremap : ;
 
+" Shortcut to open NERDTree
+nnoremap <C-n> :NERDTreeToggle<CR>
+
 " Auto save everything and ignore warnings from untitled buffers
 au FocusLost * :silent! wa
 
@@ -243,9 +258,9 @@ cmap w!! w !sudo tee > /dev/null %
 
 " Trigger configuration for ultisnips
 " Must take care to make sure compatible with YouCompleteMe
-let g:UltiSnipsExpandTrigger="<CR>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+"let g:UltiSnipsExpandTrigger="<CR>"
+"let g:UltiSnipsJumpForwardTrigger="<c-b>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " Let UltiSnipsEdit split window
-let g:UltiSnipsEditSplit="vertical"
+"let g:UltiSnipsEditSplit="vertical"
