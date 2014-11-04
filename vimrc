@@ -197,7 +197,6 @@ set history=1000
 set textwidth=79
 set colorcolumn=85
 
-"
 set formatoptions=qrn1
 
 " Do things right
@@ -216,7 +215,7 @@ nmap <C-h> gT
 
 " Make easier to type commands
 nnoremap ; :
-nnoremap : ;
+"nnoremap : ;
 
 " Shortcut to open NERDTree
 nnoremap <C-n> :NERDTreeToggle<CR>
