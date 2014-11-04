@@ -169,6 +169,8 @@ set hlsearch
 
 " Don't show startup message
 set shortmess=I
+" Don't show attention message when extant swap file found
+set shortmess+=A
 
 " Clear search highlighting quickly
 nnoremap <esc> :noh<return><esc>
@@ -235,7 +237,7 @@ nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 nnoremap <leader>v V`]
 
 " Make redo as intuitive as undo
-nnoremap <leader>R <C-r>
+nnoremap <leader>r <C-r>
 
 " Easily maximize split
 nnoremap <leader>m <C-W>o
@@ -256,6 +258,23 @@ nmap gl <C-w>l
 " Explanation here:
 " http://stackoverflow.com/questions/2600783/how-does-the-vim-write-with-sudo-trick-work
 cmap w!! w !sudo tee > /dev/null %
+
+" For CtrlP plugin
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
+" Set local working directory intelligently
+let g:ctrlp_working_path_mode = 'ra'
+
+" Exclude weird files/dirs
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+"let g:ctrlp_custom_ignore = {
+  "\ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  "\ 'file': '\v\.(exe|so|dll)$',
+  "\ 'link': 'some_bad_symbolic_links',
+  "\ }
 
 " Trigger configuration for ultisnips
 " Must take care to make sure compatible with YouCompleteMe
