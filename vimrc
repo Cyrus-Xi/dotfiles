@@ -5,6 +5,9 @@
 "
 " Make sure to re-source file (:source %) for changes to take effect.
 
+
+" ---------- VUNDLE Stuff --------
+
 " iMproved
 set nocompatible
 " Required for Vundle
@@ -64,6 +67,9 @@ filetype plugin indent on
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 "
 " See :h vundle for more details or wiki for FAQ
+
+
+" -------- NON-Vundle Stuff --------
 
 " Better safe than sorry etc.
 set modelines=0
@@ -217,17 +223,31 @@ nmap <C-h> gT
 nnoremap ; :
 "nnoremap : ;
 
+" Alternate way of escaping to normal mode
+inoremap jj <ESC>
+
 " Shortcut to open NERDTree
 nnoremap <C-n> :NERDTreeToggle<CR>
 
 " Auto save everything and ignore warnings from untitled buffers
 au FocusLost * :silent! wa
 
+" For splits
+nmap gh <C-w>h
+nmap gj <C-w>j
+nmap gk <C-w>k
+nmap gl <C-w>l
+
+" Allow saving of files as sudo when I forgot to start vim using sudo
+" Explanation here:
+" http://stackoverflow.com/questions/2600783/how-does-the-vim-write-with-sudo-trick-work
+cmap w!! w !sudo tee > /dev/null %
+
+
+" ---------- LEADER Commands ----------
+
 " Toggle invisible characters
 nnoremap <leader>i :set list!<cr>
-
-" Alternate way of escaping to normal mode
-inoremap jj <ESC>
 
 " Strip all trailing whitespace in file
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
@@ -247,16 +267,8 @@ nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 " Quickly open new vertical split and switch to it
 nnoremap <leader>s <C-w>v<C-w>l
 
-" For splits
-nmap gh <C-w>h
-nmap gj <C-w>j
-nmap gk <C-w>k
-nmap gl <C-w>l
 
-" Allow saving of files as sudo when I forgot to start vim using sudo
-" Explanation here:
-" http://stackoverflow.com/questions/2600783/how-does-the-vim-write-with-sudo-trick-work
-cmap w!! w !sudo tee > /dev/null %
+" ---------- PLUG-IN Specific ----------
 
 " For CtrlP plugin
 let g:ctrlp_map = '<c-p>'
