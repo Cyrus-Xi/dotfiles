@@ -92,6 +92,14 @@ nnoremap <esc> :noh<return><esc>
 " having to prefix "* etc.
 set clipboard=unnamed
 
+" Easily create blank lines without entering the dreaded insert mode
+nnoremap oo :pu_<Enter>
+nnoremap OO :pu!_<Enter>
+
+
+" Make opening new tabs more convenient
+nnoremap <leader>t <Esc>:tabnew<CR> 
+
 " Not sure what these do tbf
 nnoremap <tab> %
 vnoremap <tab> %
