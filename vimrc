@@ -166,8 +166,8 @@ nmap <C-h> gT
 nnoremap ; :
 nnoremap : ;
 
-" Apparently saves buffer when focus is lost
-au FocusLost * :silent! wall
+" Auto save everything and ignore warnings from untitled buffers
+au FocusLost * :silent! wa
 
 " Toggle invisible characters
 nnoremap <leader>i :set list!<cr>
