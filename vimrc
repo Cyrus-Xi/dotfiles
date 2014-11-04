@@ -7,13 +7,53 @@
 " reloading the file (with <leader>e) isn't enough. I have to quit and then
 " re-open for the changes to take effect.
 
+" iMproved
+set nocompatible
+" Required for Vundle
 filetype off
-call pathogen#infect()
-"call pathogen#runtime_append_all_bundles()"
+
+" Set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" Let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" Keep Plugin commands between vundle#begin/end.
+
+" YouCompleteMe
+Plugin 'Valloric/YouCompleteMe'
+
+" vim-fugitive
+Plugin 'tpope/vim-fugitive'
+
+" ctrlp
+Plugin 'kien/ctrlp.vim'
+
+" dracula-theme
+Plugin 'zenorocha/dracula-theme'
+
+" vim-airline
+Plugin 'bling/vim-airline'
+
+" ultisnips
+Plugin 'SirVer/ultisnips'
+
+" Snippets are separate
+Plugin 'honza/vim-snippets'
+
+" All plugins must be added before the following line
+call vundle#end()
+" Required
 filetype plugin indent on
 
-" IMproved
-set nocompatible
+" Brief Vundle help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" See :h vundle for more details or wiki for FAQ
 
 " Better safe than sorry etc.
 set modelines=0
@@ -39,7 +79,7 @@ set encoding=utf-8
 " Keep lines visible above and below cursor
 set scrolloff=5
 
-" Navigate by visual lines and speed up navigation when capitalized."
+" Navigate by visual lines and speed up navigation when capitalized
 nnoremap j gj
 nnoremap k gk
 xnoremap j gj
@@ -193,5 +233,11 @@ nmap gj <C-w>j
 nmap gk <C-w>k
 nmap gl <C-w>l
 
+" Trigger configuration for ultisnips
+" Must take care to make sure compatible with YouCompleteMe
+let g:UltiSnipsExpandTrigger="<CR>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
-
+" Let UltiSnipsEdit split window
+let g:UltiSnipsEditSplit="vertical"
