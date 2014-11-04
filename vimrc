@@ -2,6 +2,10 @@
 "   http://andrewradev.com/2011/04/26/my-vim-workflow-basic-moves/
 "   http://stevelosh.com/blog/2010/09/coming-home-to-vim/
 "   https://github.com/jdavis/dotfiles/blob/master/.vimrc
+"   
+" Apparently, for MacVim to recognize mappings using <esc>, <enter>, etc.,
+" reloading the file (with <leader>e) isn't enough. I have to quit and then
+" re-open for the changes to take effect.
 
 filetype off
 call pathogen#infect() 
@@ -28,30 +32,53 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
+
 " 'avoids unnecessary conversion overhead'
 set encoding=utf-8
+
 " Keep lines visible above and below cursor
 set scrolloff=5
+
+" Navigate by visual lines and speed up navigation when capitalized."
+nnoremap j gj
+nnoremap k gk
+xnoremap j gj
+xnoremap k gk
+nmap J 5j
+nmap K 5k
+xmap J 5j
+xmap K 5k
+
+" To conform to vimium
+nnoremap U <C-u>
+nnoremap D <C-d>
+
 " Maintain indenting
 set autoindent
+
 " Wrap text at word boundaries
 set wrap
 set linebreak
 set showmode
 set showcmd
+
 " Hide abandoned buffers
 set hidden
+
 " See other options for command completion
 set wildmenu
 set wildmode=list:longest
+
 " Make silent but useful
 set visualbell
 set cursorline
 set ttyfast
 set ruler
+
 " Intuitive backspacing
 set backspace=indent,eol,start
 set laststatus=2
+
 " For easy jumping around
 set relativenumber
 set undofile
@@ -73,18 +100,20 @@ augroup END
 " Change leader to be easier to use
 let mapleader = ","
 
+" Sensible search defaults, e.g., highlight terms dynamically
 nnoremap / /\v
 vnoremap / /\v
 " Case-smart searching
 set ignorecase
 set smartcase
-" Sensible search defaults, e.g., highlight terms dynamically
 set gdefault
 set incsearch
 set showmatch
 set hlsearch
+
 " Don't show startup message
 set shortmess=I
+
 " Clear search highlighting quickly
 nnoremap <esc> :noh<return><esc>
 
@@ -96,13 +125,13 @@ set clipboard=unnamed
 nnoremap oo :pu_<Enter>
 nnoremap OO :pu!_<Enter>
 
-
 " Make opening new tabs more convenient
 nnoremap <leader>t <Esc>:tabnew<CR> 
 
 " Not sure what these do tbf
 nnoremap <tab> %
 vnoremap <tab> %
+
 " Longer history
 set history=1000
 
@@ -123,35 +152,29 @@ inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
 
-" Navigate by visual lines and speed up navigation when capitalized."
-nnoremap j gj
-nnoremap k gk
-xnoremap j gj
-xnoremap k gk
-nmap J 5j
-nmap K 5k
-xmap J 5j
-xmap K 5k
-
-"For tabbing."
+"For tabbing
 nmap <C-l> gt
 nmap <C-h> gT
 
-" Make easier to type commands."
+" Make easier to type commands
 nnoremap ; :
 nnoremap : ;
 
 " Apparently saves buffer when focus is lost
 au FocusLost * :silent! wall
+
 " Toggle invisible characters
 nnoremap <leader>i :set list!<cr>
 
 " Ex
 "nnoremap <leader>v V`]
+
+" Easily edit .vimrc
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
+
 "nnoremap <leader>w <C-w>v<C-w>l
 
-"For splits."
+" For splits
 nmap gh <C-w>h
 nmap gj <C-w>j
 nmap gk <C-w>k
