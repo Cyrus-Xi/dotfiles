@@ -70,6 +70,7 @@ augroup END
 
 " }}}
 
+" Change leader to be easier to use
 let mapleader = ","
 
 nnoremap / /\v
@@ -77,8 +78,8 @@ vnoremap / /\v
 " Case-smart searching
 set ignorecase
 set smartcase
-set gdefault
 " Sensible search defaults, e.g., highlight terms dynamically
+set gdefault
 set incsearch
 set showmatch
 set hlsearch
@@ -97,9 +98,12 @@ vnoremap <tab> %
 " Longer history
 set history=1000
 
+" Don't let lines get too gnarly
 set textwidth=79
-set formatoptions=qrn1
 set colorcolumn=85
+
+" 
+set formatoptions=qrn1
 
 " Do things right
 nnoremap <up> <nop>
@@ -127,7 +131,9 @@ nmap <C-h> gT
 
 " Make easier to type commands."
 nnoremap ; :
+nnoremap : ;
 
+" Apparently saves buffer when focus is lost
 au FocusLost * :silent! wall
 " Toggle invisible characters
 nnoremap <leader>i :set list!<cr>
