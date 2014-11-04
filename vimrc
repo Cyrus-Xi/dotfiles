@@ -243,6 +243,11 @@ nmap gl <C-w>l
 " http://stackoverflow.com/questions/2600783/how-does-the-vim-write-with-sudo-trick-work
 cmap w!! w !sudo tee > /dev/null %
 
+" Put those pesky backup and swap files elsewhere
+" Of course, make sure to create this dir first
+set backupdir=~/.backups//
+set directory=~/.backups//
+
 
 " ---------- LEADER Commands ----------
 
