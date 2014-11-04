@@ -221,6 +221,9 @@ nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 " Quickly reselect just pasted text
 nnoremap <leader>v V`]
 
+" Make redo as intuitive as undo
+nnoremap <leader>R <C-r>
+
 " Easily edit .vimrc
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 
@@ -232,6 +235,11 @@ nmap gh <C-w>h
 nmap gj <C-w>j
 nmap gk <C-w>k
 nmap gl <C-w>l
+
+" Allow saving of files as sudo when I forgot to start vim using sudo
+" Explanation here:
+" http://stackoverflow.com/questions/2600783/how-does-the-vim-write-with-sudo-trick-work
+cmap w!! w !sudo tee > /dev/null %
 
 " Trigger configuration for ultisnips
 " Must take care to make sure compatible with YouCompleteMe
