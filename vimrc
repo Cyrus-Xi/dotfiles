@@ -3,9 +3,7 @@
 "   http://stevelosh.com/blog/2010/09/coming-home-to-vim/
 "   https://github.com/jdavis/dotfiles/blob/master/.vimrc
 "
-" Apparently, for MacVim to recognize mappings using <esc>, <enter>, etc.,
-" reloading the file (with <leader>e) isn't enough. I have to quit and then
-" re-open for the changes to take effect.
+" Make sure to re-source file (:source %) for changes to take effect.
 
 " iMproved
 set nocompatible
@@ -186,7 +184,7 @@ nnoremap <leader><S-CR> :pu!_<Enter>
 " Make opening new tabs more convenient
 nnoremap <leader>t <Esc>:tabnew<CR>
 
-" Not sure what these do tbf
+" Jump to matching things quickly
 nnoremap <tab> %
 vnoremap <tab> %
 
@@ -239,11 +237,14 @@ nnoremap <leader>v V`]
 " Make redo as intuitive as undo
 nnoremap <leader>R <C-r>
 
+" Easily maximize split
+nnoremap <leader>m <C-W>o
+
 " Easily edit .vimrc
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 
 " Quickly open new vertical split and switch to it
-nnoremap <leader>w <C-w>v<C-w>l
+nnoremap <leader>s <C-w>v<C-w>l
 
 " For splits
 nmap gh <C-w>h
