@@ -2,13 +2,13 @@
 "   http://andrewradev.com/2011/04/26/my-vim-workflow-basic-moves/
 "   http://stevelosh.com/blog/2010/09/coming-home-to-vim/
 "   https://github.com/jdavis/dotfiles/blob/master/.vimrc
-"   
+"
 " Apparently, for MacVim to recognize mappings using <esc>, <enter>, etc.,
 " reloading the file (with <leader>e) isn't enough. I have to quit and then
 " re-open for the changes to take effect.
 
 filetype off
-call pathogen#infect() 
+call pathogen#infect()
 "call pathogen#runtime_append_all_bundles()"
 filetype plugin indent on
 
@@ -66,14 +66,19 @@ set showcmd
 set hidden
 
 " See other options for command completion
+" And expand command line with tab
 set wildmenu
 set wildmode=list:longest
+set wildchar=<Tab>
 
 " Make silent but useful
 set visualbell
 set cursorline
 set ttyfast
 set ruler
+
+" 1000 undo levels
+set undolevels=1000
 
 " Intuitive backspacing
 set backspace=indent,eol,start
@@ -100,13 +105,14 @@ augroup END
 " Change leader to be easier to use
 let mapleader = ","
 
-" Sensible search defaults, e.g., highlight terms dynamically
+" Sensible search defaults
 nnoremap / /\v
 vnoremap / /\v
 " Case-smart searching
 set ignorecase
 set smartcase
 set gdefault
+" Highlight terms dynamically
 set incsearch
 set showmatch
 set hlsearch
@@ -122,11 +128,11 @@ nnoremap <esc> :noh<return><esc>
 set clipboard=unnamed
 
 " Easily create blank lines without entering the dreaded insert mode
-nnoremap oo :pu_<Enter>
-nnoremap OO :pu!_<Enter>
+nnoremap <S-CR> :pu_<Enter>
+nnoremap <leader><S-CR> :pu!_<Enter>
 
 " Make opening new tabs more convenient
-nnoremap <leader>t <Esc>:tabnew<CR> 
+nnoremap <leader>t <Esc>:tabnew<CR>
 
 " Not sure what these do tbf
 nnoremap <tab> %
@@ -139,7 +145,7 @@ set history=1000
 set textwidth=79
 set colorcolumn=85
 
-" 
+"
 set formatoptions=qrn1
 
 " Do things right
@@ -166,18 +172,26 @@ au FocusLost * :silent! wall
 " Toggle invisible characters
 nnoremap <leader>i :set list!<cr>
 
-" Ex
-"nnoremap <leader>v V`]
+" Alternate way of escaping to normal mode
+inoremap jj <ESC>
+
+" Strip all trailing whitespace in file
+nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+
+" Quickly reselect just pasted text
+nnoremap <leader>v V`]
 
 " Easily edit .vimrc
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 
-"nnoremap <leader>w <C-w>v<C-w>l
+" Quickly open new vertical split and switch to it
+nnoremap <leader>w <C-w>v<C-w>l
 
 " For splits
 nmap gh <C-w>h
 nmap gj <C-w>j
 nmap gk <C-w>k
 nmap gl <C-w>l
+
 
 
