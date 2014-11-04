@@ -7,7 +7,7 @@
 	com = commit
 	chout = checkout
 [core]
-	editor = subl -w
+	editor = mvim
 	autocrlf = input
 [push]
 	default = simple
