@@ -158,9 +158,6 @@ augroup END
 
 " }}}
 
-" Change leader to be easier to use
-let mapleader = ","
-
 " Sensible search defaults
 nnoremap / /\v
 vnoremap / /\v
@@ -184,13 +181,6 @@ nnoremap <esc> :noh<return><esc>
 " Make all yank/delete/paste operations work with system clipboard without
 " having to prefix "* etc.
 set clipboard=unnamed
-
-" Easily create blank lines without entering the dreaded insert mode
-nnoremap <S-CR> :pu_<Enter>
-nnoremap <leader><S-CR> :pu!_<Enter>
-
-" Make opening new tabs more convenient
-nnoremap <leader>t <Esc>:tabnew<CR>
 
 " Jump to matching things quickly
 nnoremap <tab> %
@@ -221,7 +211,7 @@ nmap <C-h> gT
 
 " Make easier to type commands
 nnoremap ; :
-"nnoremap : ;
+nnoremap : ;
 
 " Alternate way of escaping to normal mode
 inoremap jk <ESC>
@@ -241,8 +231,8 @@ set foldnestmax=10
 set nofoldenable
 set foldlevel=1
 " Save and reload fold state automatically
-au BufWinLeave * mkview
-au BufWinEnter * silent loadview
+"au BufWinLeave * mkview
+"au BufWinEnter * silent loadview
 
 " For splits
 nmap gh <C-w>h
@@ -257,17 +247,27 @@ cmap w!! w !sudo tee > /dev/null %
 
 " Put those pesky backup and swap files elsewhere
 " Of course, make sure to create this dir first
-set backupdir=~/.backups//
-set directory=~/.backups//
+set backupdir=~/.backups
+set directory=~/.backups
 
 
 " ---------- LEADER Commands ----------
 
+" Change leader to be easier to use
+let mapleader = ","
+
 " Toggle invisible characters
 nnoremap <leader>i :set list!<cr>
 
+" Easily create blank lines without entering the dreaded insert mode
+nnoremap <S-CR> :pu_<Enter>
+nnoremap <leader><S-CR> :pu!_<Enter>
+
 " Strip all trailing whitespace in file
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+
+" Make opening new tabs more convenient
+nnoremap <leader>t <Esc>:tabnew<CR>
 
 " Quickly reselect just pasted text
 nnoremap <leader>v V`]
