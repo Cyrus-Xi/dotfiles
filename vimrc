@@ -234,6 +234,9 @@ set foldlevel=1
 "au BufWinLeave * mkview
 "au BufWinEnter * silent loadview
 
+" Use semi-colon instead of colon to see command history
+nmap q; q:
+
 " For splits
 nmap gh <C-w>h
 nmap gj <C-w>j
