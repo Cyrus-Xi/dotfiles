@@ -224,13 +224,25 @@ nnoremap ; :
 "nnoremap : ;
 
 " Alternate way of escaping to normal mode
-inoremap jj <ESC>
+inoremap jk <ESC>
 
 " Shortcut to open NERDTree
 nnoremap <C-n> :NERDTreeToggle<CR>
 
 " Auto save everything and ignore warnings from untitled buffers
 au FocusLost * :silent! wa
+
+" Folding settings
+" Fold based on indent
+set foldmethod=indent
+" Deepest fold is 10 levels
+set foldnestmax=10
+" Don't fold by default
+set nofoldenable
+set foldlevel=1
+" Save and reload fold state automatically
+au BufWinLeave * mkview
+au BufWinEnter * silent loadview
 
 " For splits
 nmap gh <C-w>h
