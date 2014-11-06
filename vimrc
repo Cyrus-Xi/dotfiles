@@ -105,6 +105,11 @@ nmap K 5k
 xmap J 5j
 xmap K 5k
 
+" Have vim automatically read updated files
+" And save changes to disk when a buffer is switched or closed
+set autoread
+set autowrite
+
 " To conform to vimium
 nnoremap U <C-u>
 nnoremap D <C-d>
