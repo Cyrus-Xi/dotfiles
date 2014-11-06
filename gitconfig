@@ -5,6 +5,7 @@
 	st = status
 	unstage = reset HEAD --
 	com = commit -a -m
+	ci = commit
 	chout = checkout
 [core]
 	editor = mvim

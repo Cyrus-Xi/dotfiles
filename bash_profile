@@ -80,7 +80,8 @@ set -o vi
 #   2.  MAKE TERMINAL BETTER
 #   -----------------------------
 
-alias gci='git commit -m'
+alias gcom='git commit -a -m'
+alias gci='git commit'
 alias vi='vim'                               # Make vim faster to open.
 alias mvi='mvim'                             # Make mvim faster to open.
 alias cp='cp -iv'                           # Prompt before overwrite and verbose
