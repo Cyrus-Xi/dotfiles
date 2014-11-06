@@ -80,10 +80,16 @@ set -o vi
 #   2.  MAKE TERMINAL BETTER
 #   -----------------------------
 
+# Even shorter git aliases. I'm lazy.
+alias gst='git status'                      
+alias gpull='git pull'
+alias gpush='git push'
 alias gcom='git commit -a -m'
 alias gci='git commit'
-alias vi='vim'                               # Make vim faster to open.
-alias mvi='mvim'                             # Make mvim faster to open.
+alias gadd='git add'
+
+alias vi='vim'                              # Make vim faster to open.
+alias mvi='mvim'                            # Make mvim faster to open.
 alias cp='cp -iv'                           # Prompt before overwrite and verbose
 alias mv='mv -iv'                           # Prompt before overwrite and verbose
 alias mkdir='mkdir -pv'                     # Make parents as needed, print msg for each created dir
