@@ -128,6 +128,7 @@ set hidden
 
 " See other options for command completion
 " And expand command line with tab
+" And ignore files as appropriate
 set wildmenu
 set wildmode=list:longest
 set wildchar=<Tab>
@@ -303,7 +304,11 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 
 " Exclude weird files/dirs
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+" First make sure wildignore is being applied
+if exists("g:ctrl_user_command")
+    unlet g:ctrlp_user_command
+endif
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.javac,*.pyc,.*,~/Library/* 
 
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 "let g:ctrlp_custom_ignore = {
