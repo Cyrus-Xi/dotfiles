@@ -237,10 +237,13 @@ set foldnestmax=10
 set nofoldenable
 set foldlevel=1
 " Save and reload fold state automatically
-"autocmd BufWinLeave *.* mkview!
-"autocmd BufWinEnter *.* silent loadview
-"autocmd BufWinLeave .* mkview
-"autocmd BufWinEnter .* silent loadview 
+" autocmd BufWinLeave *.* mkview!
+" autocmd BufWinEnter *.* silent loadview
+" autocmd BufWinLeave .* mkview
+" autocmd BufWinEnter .* silent loadview 
+
+" Quickly source current file (e.g. when editing vimrc)
+nnoremap <C-s> :source %  
 
 " Use semi-colon instead of colon to see command history
 nmap q; q:
@@ -250,6 +253,9 @@ nmap gh <C-w>h
 nmap gj <C-w>j
 nmap gk <C-w>k
 nmap gl <C-w>l
+
+" Close buffer without closing the window split
+" command Bd bp | sp | bn | bd
 
 " Allow saving of files as sudo when I forgot to start vim using sudo
 " Explanation here:
