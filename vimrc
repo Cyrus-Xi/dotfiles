@@ -237,8 +237,10 @@ set foldnestmax=10
 set nofoldenable
 set foldlevel=1
 " Save and reload fold state automatically
-"au BufWinLeave * mkview
-"au BufWinEnter * silent loadview
+"autocmd BufWinLeave *.* mkview!
+"autocmd BufWinEnter *.* silent loadview
+"autocmd BufWinLeave .* mkview
+"autocmd BufWinEnter .* silent loadview 
 
 " Use semi-colon instead of colon to see command history
 nmap q; q:

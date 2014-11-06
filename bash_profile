@@ -1,6 +1,6 @@
-# To run in iTerm, seems like I need to re-source .bash_profile ('reload') 
-# each time a new tab or window is opened, otherwise my 'cd' command doesn't 
-# work. So to fix this, in iTerm's preferences, I send this text at the 
+# To run in iTerm, seems like I need to re-source .bash_profile ('reload')
+# each time a new tab or window is opened, otherwise my 'cd' command doesn't
+# work. So to fix this, in iTerm's preferences, I send this text at the
 # start: reload && c. This sources .bash_profile and then clears the screen.
 
 #  ---------------------------------------------------------------------------
@@ -21,17 +21,17 @@
 #  9.   Reminders & Notes
 #
 #  ---------------------------------------------------------------------------
- 
+
 #   -------------------------------
 #   1.  ENVIRONMENT CONFIGURATION
 #   -------------------------------
- 
+
 #   Change Prompt
 #   ------------------------------------------------------------
 
 # From http://osxdaily.com/2013/02/05/improve-terminal-appearance-mac-os-x/.
 # Colorizes bash prompt, rearranges prompt.
-# Enables command line colors and defines colors for ls. 
+# Enables command line colors and defines colors for ls.
 # ls aliased to include -G (colorizes), -h (human-readable sizes), -F
 # marks different file types differently.
 
@@ -44,6 +44,8 @@ export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Devel
 source /usr/local/bin/virtualenvwrapper.sh
 
+
+
 # Turn on vi(m) mode
 set -o vi
 
@@ -55,8 +57,7 @@ set -o vi
 	# Ensure profile is run.
     #. /etc/profile
 
-    export PATH="/usr/local/git/bin:/sw/bin/:/usr/local/bin/:/usr/local/:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
-    export PATH="$PATH:/Library/Java/"
+    export PATH="/usr/bin:/usr/sbin:/bin:/usr/local/git/bin:/usr/local/bin:/usr/local:/Library/Java:$PATH"
 
 #   Set Default Editor (to Sublime Text 2)
 #   ------------------------------------------------------------
@@ -79,6 +80,7 @@ set -o vi
 #   2.  MAKE TERMINAL BETTER
 #   -----------------------------
 
+alias gci='git commit -m'
 alias vi='vim'                               # Make vim faster to open.
 alias mvi='mvim'                             # Make mvim faster to open.
 alias cp='cp -iv'                           # Prompt before overwrite and verbose
@@ -92,7 +94,7 @@ alias less='less -FSRXc'                    # Preferred 'less' implementation
 function cd {                               # Always list directory contents upon 'cd'
     builtin cd "$@" && ls
 }
-#cd() { builtin cd "$@"; ll; }               
+#cd() { builtin cd "$@"; ll; }
 alias cd..='cd ../'                         # Go back 1 directory level (for fast typers)
 alias ..='cd ../'                           # Go back 1 directory level
 alias ...='cd ../../'                       # Go back 2 directory levels
@@ -341,3 +343,21 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
+# Clean up duplicates
+# From http://unix.stackexchange.com/questions/40749/remove-duplicate-path-entries-with-awk-command
+if [ -n "$PATH" ]; then
+  old_PATH=$PATH:; PATH=
+  while [ -n "$old_PATH" ]; do
+    x=${old_PATH%%:*}       # the first remaining entry
+    case $PATH: in
+      *:"$x":*) ;;         # already there
+      *) PATH=$PATH:$x;;    # not there yet
+    esac
+    old_PATH=${old_PATH#*:}
+  done
+  PATH=${PATH#:}
+  unset old_PATH x
+fi
+
+# Remove bad PATH entries
+PATH=`echo $PATH | sed -e 's/:\/usr\/X11\/bin$//'`
