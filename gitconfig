@@ -4,7 +4,7 @@
 [alias]
 	st = status
 	unstage = reset HEAD --
-	com = commit -m
+	com = commit -a -m
 	chout = checkout
 [core]
 	editor = mvim
