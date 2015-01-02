@@ -80,6 +80,14 @@ set -o vi
 #   2.  MAKE TERMINAL BETTER
 #   -----------------------------
 
+ promptFunc()
+  {
+    # right before prompting for the next command, save the previous
+    # command in a file.
+    echo "$(date +%Y-%m-%d--%H-%M-%S) $(hostname) $PWD $(history 1)" >> ~/.full_history
+  }
+  PROMPT_COMMAND=promptFunc
+
 # Even shorter git aliases. I'm lazy.
 alias gst='git status'                      
 alias gpull='git pull'
