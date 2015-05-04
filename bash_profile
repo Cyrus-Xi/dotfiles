@@ -381,3 +381,6 @@ fi
 
 # Remove bad PATH entries
 PATH=`echo $PATH | sed -e 's/:\/usr\/X11\/bin$//'`
+
+# For pyenv
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
