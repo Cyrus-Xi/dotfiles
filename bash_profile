@@ -100,6 +100,7 @@ alias gcom='git commit -a -m'
 alias gci='git commit'
 alias gadd='git add'
 alias gbr='git branch'
+alias gcho='git checkout'
 
 alias vi='vim'                              # Make vim faster to open.
 alias mvi='mvim'                            # Make mvim faster to open.
