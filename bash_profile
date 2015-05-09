@@ -101,6 +101,7 @@ alias gci='git commit'
 alias gadd='git add'
 alias gbr='git branch'
 alias gcho='git checkout'
+alias gmrg='git merge'
 
 alias vi='vim'                              # Make vim faster to open.
 alias mvi='mvim'                            # Make mvim faster to open.
@@ -385,3 +386,4 @@ PATH=`echo $PATH | sed -e 's/:\/usr\/X11\/bin$//'`
 
 # For pyenv
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+export PATH="/usr/local/bin:$PATH"
