@@ -59,7 +59,7 @@ set -o vi
 
     export PATH="/usr/bin:/usr/sbin:/bin:/usr/local/git/bin:/usr/local/bin:/usr/local:/Library/Java:$PATH"
 
-#   Set Default Editor (to Sublime Text 2)
+#   Set Default Editor (to Vim)
 #   ------------------------------------------------------------
     export EDITOR=mvim
 
