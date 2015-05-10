@@ -29,13 +29,17 @@
 #   Change Prompt
 #   ------------------------------------------------------------
 
+# Load git branch prompt script.
+source ~/.git-prompt.sh
+
 # From http://osxdaily.com/2013/02/05/improve-terminal-appearance-mac-os-x/.
 # Colorizes bash prompt, rearranges prompt.
 # Enables command line colors and defines colors for ls.
-# ls aliased to include -G (colorizes), -h (human-readable sizes), -F
-# marks different file types differently.
 
-export PS1="\[\033[36m\]\u\[\033[m\]:\[\033[33;1m\]\w\[\033[m\]\$ "
+# Adding git branch to prompt: http://code-worrier.com/blog/git-branch-in-bash-prompt/
+# Prompt colors: http://tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html
+
+export PS1="\[\033[36m\]\u\[\033[m\]:\[\033[33;1m\]\w\[\033[m\]\[\033[35m\]\$(__git_ps1)\[\033[0m\]$ "
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 
@@ -43,8 +47,6 @@ export LSCOLORS=ExFxBxDxCxegedabagacad
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Devel
 source /usr/local/bin/virtualenvwrapper.sh
-
-
 
 # Turn on vi(m) mode
 set -o vi
