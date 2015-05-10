@@ -94,6 +94,11 @@ function histgrep {
     cat ~/.full_history | grep "$@" | tail
   }
 
+# Execute git autocompletion script if it exists.
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-completion.bash
+fi
+
 # Even shorter git aliases. I'm lazy.
 alias gst='git status'                      
 alias gpull='git pull'
