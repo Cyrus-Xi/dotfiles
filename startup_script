@@ -1,0 +1,10 @@
+bash
+set -o vi
+alias ltr="ls -lthr"
+cdl() { cd "$@" && ltr; }
+alias vix="vi -u /export/home/srvwsdev/alt_vimrc"
+vitr() { vix $(ls -t | head -n $1); }
+export PS1="\n[\w]\n\u@\h $ "
+cd /apps/custom
+clear
+ltr
