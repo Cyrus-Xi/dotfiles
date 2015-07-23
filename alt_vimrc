@@ -1,0 +1,165 @@
+syntax on
+
+color evening
+
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+
+" Keep lines visible above and below cursor
+set scrolloff=5
+
+" Navigate by visual lines and speed up navigation when capitalized
+nnoremap j gj
+nnoremap k gk
+xnoremap j gj
+xnoremap k gk
+nmap J 5j
+nmap K 5k
+xmap J 5j
+xmap K 5k
+
+" Have vim automatically read updated files
+" And save changes to disk when a buffer is switched or closed
+ set autoread
+ set autowrite
+
+" To conform to vimium
+nnoremap U <C-u>
+nnoremap D <C-d>
+
+" Maintain indenting
+set autoindent
+
+" Wrap text at word boundaries
+set wrap
+set linebreak
+set showmode
+set showcmd
+
+" Hide abandoned buffers
+set hidden
+
+" See other options for command completion
+" And expand command line with tab
+" And ignore files as appropriate
+set wildmenu
+set wildmode=list:longest
+set wildchar=<Tab>
+
+" Make silent but useful
+set visualbell
+set cursorline
+set ttyfast
+set ruler
+
+" 1000 undo levels
+set undolevels=1000
+
+" Intuitive backspacing
+set backspace=indent,eol,start
+set laststatus=2
+
+" Sensible search defaults
+nnoremap / /\v
+vnoremap / /\v
+" Case-smart searching
+set ignorecase
+set smartcase
+set gdefault
+" Highlight terms dynamically
+set incsearch
+set showmatch
+set hlsearch
+
+" Clear search highlighting quickly
+nnoremap <esc> :noh<return><esc>
+
+" Make all yank/delete/paste operations work with system clipboard without
+" having to prefix "* etc.
+set clipboard=unnamed
+
+" Jump to matching things quickly
+nnoremap <tab> %
+vnoremap <tab> %
+
+" Longer history
+set history=1000
+
+" Don't let lines get too gnarly
+set textwidth=79
+
+set formatoptions=qrn1
+
+" Do things right
+nnoremap <up> <nop>
+nnoremap <down> <np>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+
+"For tabbing
+nmap <C-l> gt
+nmap <C-h> gT
+
+" Make easier to type commands
+nnoremap ; :
+nnoremap : ;
+
+" Alternate way of escaping to normal mode
+inoremap jk <ESC>
+
+" Auto save everything and ignore warnings from untitled buffers
+au FocusLost * :silent! wa
+
+" Quickly source current file (e.g. when editing vimrc)
+" nnoremap <C-s> :source %
+
+" Use semi-colon instead of colon to see command history
+nmap q; q:
+
+" For splits
+nmap gh <C-w>h
+nmap gj <C-w>j
+nmap gk <C-w>k
+nmap gl <C-w>l
+
+" Close buffer without closing the window split
+command Bd bp | sp | bn | bd
+
+" ---------- LEADER Commands ----------
+
+" Change leader to be easier to use
+let mapleader = ","
+
+" Toggle invisible characters
+nnoremap <leader>i :set list!<cr>
+
+" Easily create blank lines without entering the dreaded insert mode
+nnoremap <S-CR> :pu_<Enter>
+nnoremap <leader><S-CR> :pu!_<Enter>
+
+" Strip all trailing whitespace in file
+nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+
+" Make opening new tabs more convenient
+nnoremap <leader>t <Esc>:tabnew<CR>
+
+" Quickly reselect just pasted text
+nnoremap <leader>v V`]
+
+" Make redo as intuitive as undo
+nnoremap <leader>r <C-r>
+
+" Easily maximize split
+nnoremap <leader>m <C-W>o
+
+" Easily edit .vimrc
+nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
+
+" Quickly open new vertical split and switch to it
+nnoremap <leader>s <C-w>v<C-w>l
