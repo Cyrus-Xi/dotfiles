@@ -1,7 +1,9 @@
+" Turn on syntax highlighting permanently
 syntax on
 
 color evening
 
+" Expand tabs sensibly, etc.
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
