@@ -40,6 +40,7 @@ source ~/.git-prompt.sh
 # Prompt colors: http://tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html
 
 export PS1="\[\033[36m\]\u\[\033[m\]:\[\033[33;1m\]\w\[\033[m\]\[\033[35m\]\$(__git_ps1)\[\033[0m\]$ "
+#export PS1="\n[\w]\n\u@\h $ "
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 
@@ -81,6 +82,7 @@ set -o vi
 #   -----------------------------
 #   2.  MAKE TERMINAL BETTER
 #   -----------------------------
+export MACOSX_DEPLOYMENT_TARGET=10.10
 
  promptFunc()
   {
@@ -99,6 +101,13 @@ if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
 fi
 
+# Output filenames in current directory (or 1 level down) containing some string.
+fndcur() { find . -maxdepth 1 -name "*$@*" -print; }
+fndcur2() { find . -maxdepth 2 -name "*$@*" -print; }
+
+# Open last N modified files.
+vitr() { mvi $(ls -t | head -n $1); }
+
 # Even shorter git aliases. I'm lazy.
 alias gst='git status'                      
 alias gpull='git pull'
@@ -115,13 +124,14 @@ alias mvi='mvim'                            # Make mvim faster to open.
 alias cp='cp -iv'                           # Prompt before overwrite and verbose
 alias mv='mv -iv'                           # Prompt before overwrite and verbose
 alias mkdir='mkdir -pv'                     # Make parents as needed, print msg for each created dir
+alias ltr="ls -lthr"                        # Preferred 'ls' implementation; simple last modified
 alias la='ls -aSr'                          # Show hidden files and sort by size
 alias ll='ls -lgGFh'                        # Make default 'ls' a little better but keep simple
-alias lm='ls -FGlAhptr'                     # Preferred 'ls' implementation; sort by reverse last modified
+alias lm='ls -FGlAhptr'                     # Complex sort by reverse last modified
 alias ls='ls'
 alias less='less -FSRXc'                    # Preferred 'less' implementation
 function cd {                               # Always list directory contents upon 'cd'
-    builtin cd "$@" && ls
+    builtin cd "$@" && ltr
 }
 #cd() { builtin cd "$@"; ll; }
 alias cd..='cd ../'                         # Go back 1 directory level (for fast typers)
@@ -145,6 +155,8 @@ trash () { command mv "$@" ~/.Trash ; }     # trash:        Moves a file to the 
 ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in MacOS Quicklook Preview
 alias DT='tee ~/Desktop/terminalOut.txt'    # DT:           Pipe content to file on MacOS Desktop
 alias reload='source ~/.bash_profile'       # reload:       Make easy to update profile changes.
+
+export INDICO_API_KEY=aafba0af04856f2e227d0b85a4aaed21
 
 #   lr:  Full Recursive Directory Listing
 #   ------------------------------------------
@@ -394,3 +406,13 @@ PATH=`echo $PATH | sed -e 's/:\/usr\/X11\/bin$//'`
 # For pyenv
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 export PATH="/usr/local/bin:$PATH"
+
+# Setting PATH for Python 2.7
+# The orginal version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
+export PATH
+
+# Setting PATH for Python 2.7
+# The orginal version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
+export PATH
