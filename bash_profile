@@ -109,6 +109,7 @@ fndcur2() { find . -maxdepth 2 -name "*$@*" -print; }
 vitr() { mvi $(ls -t | head -n $1); }
 
 # Even shorter git aliases. I'm lazy.
+alias g='git'
 alias gst='git status'                      
 alias gpull='git pull'
 alias gpush='git push'
@@ -297,7 +298,7 @@ alias showBlocked='sudo ipfw list'                  # showBlocked:  All ipfw rul
 #   -------------------------------------------------------------------
     ii() {
         echo -e "\nYou are logged on ${RED}$HOST"
-        echo -e "\nAdditionnal information:$NC " ; uname -a
+        echo -e "\nAdditional information:$NC " ; uname -a
         echo -e "\n${RED}Users logged on:$NC " ; w -h
         echo -e "\n${RED}Current date :$NC " ; date
         echo -e "\n${RED}Machine stats :$NC " ; uptime
@@ -400,11 +401,3 @@ if [ -n "$PATH" ]; then
   PATH=${PATH#:}
   unset old_PATH x
 fi
-
-# Remove bad PATH entries
-PATH=`echo $PATH | sed -e 's/:\/usr\/X11\/bin$//'`
-
-# Setting PATH for Python 2.7
-# The orginal version is saved in .bash_profile.pysave
-#PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
-#export PATH
