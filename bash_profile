@@ -47,7 +47,7 @@ export LSCOLORS=ExFxBxDxCxegedabagacad
 # From http://docs.python-guide.org/en/latest/dev/virtualenvs/
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Devel
-source /usr/local/bin/virtualenvwrapper.sh
+#source /usr/local/bin/virtualenvwrapper.sh
 
 # Turn on vi(m) mode
 set -o vi
@@ -60,7 +60,7 @@ set -o vi
 	# Ensure profile is run.
     #. /etc/profile
 
-    export PATH="/usr/bin:/usr/sbin:/bin:/usr/local/git/bin:/usr/local/bin:/usr/local:/Library/Java:$PATH"
+    export PATH="/usr/local/bin:/usr/bin:/usr/sbin:/bin:/usr/local/git/bin:/usr/local/bin:/usr/local:/Library/Java:$PATH"
 
 #   Set Default Editor (to Vim)
 #   ------------------------------------------------------------
@@ -134,6 +134,7 @@ function cd {                               # Always list directory contents upo
     builtin cd "$@" && ltr
 }
 #cd() { builtin cd "$@"; ll; }
+alias cdl='cd'                              # To match work implementation
 alias cd..='cd ../'                         # Go back 1 directory level (for fast typers)
 alias ..='cd ../'                           # Go back 1 directory level
 alias ...='cd ../../'                       # Go back 2 directory levels
@@ -378,7 +379,7 @@ httpHeaders () { /usr/bin/curl -I -L $@ ; }             # httpHeaders:      Grab
 #   then use: ~/Dev/Perl/randBytes 1048576 > 10MB.dat
 
 ### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+export PATH="$PATH:/usr/local/heroku/bin"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
@@ -403,16 +404,7 @@ fi
 # Remove bad PATH entries
 PATH=`echo $PATH | sed -e 's/:\/usr\/X11\/bin$//'`
 
-# For pyenv
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-export PATH="/usr/local/bin:$PATH"
-
 # Setting PATH for Python 2.7
 # The orginal version is saved in .bash_profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
-export PATH
-
-# Setting PATH for Python 2.7
-# The orginal version is saved in .bash_profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
-export PATH
+#PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
+#export PATH

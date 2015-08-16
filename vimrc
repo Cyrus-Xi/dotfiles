@@ -18,7 +18,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " Let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 " Keep Plugin commands between vundle#begin/end.
 
@@ -54,6 +54,15 @@ Plugin 'scrooloose/syntastic'
 
 " minibufexpl
 Plugin 'fholgado/minibufexpl.vim'
+
+" Tagbar
+Plugin 'majutsushi/tagbar'
+
+"surround.vim
+Plugin 'tpope/vim-surround'
+
+"vim-easymotion
+Plugin 'easymotion/vim-easymotion'
 
 " All plugins must be added before the following line
 call vundle#end()
@@ -333,3 +342,6 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
 " Let UltiSnipsEdit split window
 "let g:UltiSnipsEditSplit="vertical"
+
+" For Tagbar
+nnoremap <leader>tag :TagbarToggle<CR>
