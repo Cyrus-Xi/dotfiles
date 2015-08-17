@@ -38,11 +38,28 @@ source ~/.git-prompt.sh
 
 # Adding git branch to prompt: http://code-worrier.com/blog/git-branch-in-bash-prompt/
 # Prompt colors: http://tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html
+# Two line prompt: https://gist.github.com/mkottman/1936195
+# Minus the git branch part
 
-export PS1="\[\033[36m\]\u\[\033[m\]:\[\033[33;1m\]\w\[\033[m\]\[\033[35m\]\$(__git_ps1)\[\033[0m\]$ "
-#export PS1="\n[\w]\n\u@\h $ "
+#export PS1="\[\033[36m\]\u\[\033[m\]:\[\033[33;1m\]\w\[\033[m\]\[\033[35m\]\$(__git_ps1)\[\033[0m\]$ "
+ 
+TURQUOISE="\[\033[36m\]"
+ORANGE="\[\033[33;1m\]"
+PINK="\[\033[35m\]"
+RESET="\[\033[0m\]"
+RED="\[\033[0;31m\]"
+GREEN="\[\033[01;32m\]"
+BLUE="\[\033[01;34m\]"
+YELLOW="\[\033[0;33m\]"
+ 
+PS_LINE=`printf -- '- %.0s' {1..200}`
+PS_INFO="$TURQUOISE\u@\h$RESET:$ORANGE\w"
+PS_GIT="$PINK\$(__git_ps1)"
+PS_TIME="\[\033[\$((COLUMNS-10))G\] $RED[\t]"
+export PS1="\${PS_FILL}\[\033[0G\]${PS_INFO} ${PS_GIT}${PS_TIME}\n${RESET}\$ "
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
+#export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 
 # From http://docs.python-guide.org/en/latest/dev/virtualenvs/
 export WORKON_HOME=$HOME/.virtualenvs
@@ -60,7 +77,7 @@ set -o vi
 	# Ensure profile is run.
     #. /etc/profile
 
-    export PATH="/usr/local/bin:/usr/bin:/usr/sbin:/bin:/usr/local/git/bin:/usr/local/bin:/usr/local:/Library/Java:$PATH"
+    export PATH="/usr/local/bin:/usr/local:/usr/bin:/usr/sbin:/bin:/usr/local/git/bin:/usr/local/bin:/usr/local:/Library/Java:$PATH"
 
 #   Set Default Editor (to Vim)
 #   ------------------------------------------------------------

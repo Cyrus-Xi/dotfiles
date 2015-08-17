@@ -64,6 +64,9 @@ Plugin 'tpope/vim-surround'
 "vim-easymotion
 Plugin 'easymotion/vim-easymotion'
 
+"solarized
+Bundle 'altercation/vim-colors-solarized'
+
 " All plugins must be added before the following line
 call vundle#end()
 " Required
@@ -85,9 +88,13 @@ set modelines=0
 
 " Turn on syntax highlighting permanently
 syntax on
+syntax enable
 
 " Set color scheme
-color Dracula
+"color Dracula
+set background=dark
+let g:solarized_termtrans = 1
+colorscheme solarized
 
 " Set font for MacVim
 set gfn=Monaco:h12
@@ -124,7 +131,7 @@ nnoremap U <C-u>
 nnoremap D <C-d>
 
 " Maintain indenting
-set autoindent
+"set autoindent
 
 " Wrap text at word boundaries
 set wrap
