@@ -125,6 +125,10 @@ fndcur2() { find . -maxdepth 2 -name "*$@*" -print; }
 # Open last N modified files.
 vitr() { mvi $(ls -t | head -n $1); }
 
+# Longer bash command history file.
+HISTSIZE=1000
+HISTFILESIZE=2000
+
 # Even shorter git aliases. I'm lazy.
 alias g='git'
 alias gst='git status'                      
@@ -137,8 +141,8 @@ alias gbr='git branch'
 alias gcho='git checkout'
 alias gmrg='git merge'
 
-alias vi='vim'                              # Make vim faster to open.
-alias mvi='mvim'                            # Make mvim faster to open.
+alias vi='vim -w ~/.vimlog "$@"'            # Make vim faster to open and log.
+alias mvi='mvim -w ~/.vimlog "$@"'          # Make mvim faster to open and log.
 alias cp='cp -iv'                           # Prompt before overwrite and verbose
 alias mv='mv -iv'                           # Prompt before overwrite and verbose
 alias mkdir='mkdir -pv'                     # Make parents as needed, print msg for each created dir
