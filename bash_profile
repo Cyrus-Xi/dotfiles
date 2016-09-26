@@ -422,3 +422,6 @@ if [ -n "$PATH" ]; then
   PATH=${PATH#:}
   unset old_PATH x
 fi
+
+# added by Anaconda3 2.4.0 installer
+export PATH="/Users/Suryc11/anaconda3/bin:$PATH"
